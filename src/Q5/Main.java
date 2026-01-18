@@ -7,11 +7,11 @@ public class Main {
         System.out.print("Enter the number of cows: ");
         int n = scanner.nextInt();
 
-        SharedResource sharedResource = new SharedResource(n);
-        Compounds compounds = new Compounds(n);
+        SharedResource res = new SharedResource(n);
+        Compounds comp = new Compounds(n);
 
-        for(int i = 1; i < n; i++) {
-            cowThread cow = new cowThread(i, sharedResource, compounds);
+        for(int i = 1; i <= n; i++) {
+            CowThread cow = new CowThread(i, res, comp);
             cow.start();
         }
 
